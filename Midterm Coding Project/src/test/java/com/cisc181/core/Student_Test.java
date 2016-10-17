@@ -18,12 +18,14 @@ import com.cisc181.exceptions.PersonException;
 
 public class Student_Test {
 
+	private static final double DELTA =  1e-15;
+
 	@BeforeClass
 	public static void setup() {
 	}
 
 	@Test
-	public void test() throws PersonException, ParseException {
+	public void Studenttest() throws PersonException, ParseException {
 		ArrayList<Course> course = new ArrayList<Course>();
 		Course course1 = new Course();
 		Course course2 = new Course();
@@ -135,15 +137,15 @@ public class Student_Test {
 		students.add(student10);
 
 		ArrayList<Enrollment> enrollment = new ArrayList<Enrollment>();
-		for (int i = 0; i < section.size() + 1; i++) {
-			for (int j = 0; j < students.size() + 1; j++) {
+		for (int i = 0; i < section.size(); i++) {
+			for (int j = 0; j < students.size(); j++) {
 				Enrollment enrollments = new Enrollment(section.get(i).getSectionID(), students.get(j).getStudentID());
 				enrollment.add(enrollments);
 			}
 
 		}
 		int count = 1;
-		for (int i = 0; i < enrollment.size() + 1; i++) {
+		for (int i = 0; i < enrollment.size(); i++) {
 			enrollment.get(i).SetGrade(count * 5);
 			count++;
 		}
@@ -187,21 +189,60 @@ public class Student_Test {
 				+ ((enrollment.get(29).getGrade()) / 20 - 1) + ((enrollment.get(39).getGrade()) / 20 - 1)
 				+ ((enrollment.get(49).getGrade()) / 20 - 1) + ((enrollment.get(59).getGrade()) / 20 - 1))
 				/ ((double) 6);
+		//Course 1 = avg of section 0-fall and 3-spring together
+		double avg_course_grade1 = ((enrollment.get(0).getGrade()) + (enrollment.get(1).getGrade())
+				+ (enrollment.get(2).getGrade())+ (enrollment.get(3).getGrade())
+				+ (enrollment.get(4).getGrade()) + (enrollment.get(5).getGrade()) + (enrollment.get(6).getGrade()) + (enrollment.get(7).getGrade())
+				+ (enrollment.get(8).getGrade())+ (enrollment.get(9).getGrade())
+				+ (enrollment.get(30).getGrade()) + (enrollment.get(31).getGrade()) + (enrollment.get(32).getGrade()) + (enrollment.get(33).getGrade())
+				+ (enrollment.get(34).getGrade())+ (enrollment.get(35).getGrade())
+				+ (enrollment.get(36).getGrade()) + (enrollment.get(37).getGrade()) +  (enrollment.get(38).getGrade()) + (enrollment.get(39).getGrade()))
+				/ ((double) 20);
+	
 		
-		System.out.println(gpa_student1);
-		System.out.println(gpa_student2);
-		System.out.println(gpa_student3);
-		System.out.println(gpa_student4);
-		System.out.println(gpa_student5);
-		System.out.println(gpa_student6);
-		System.out.println(gpa_student7);
-		System.out.println(gpa_student8);
-		System.out.println(gpa_student9);
-		System.out.println(gpa_student10);
-		assertEquals(1,1);
+		//Course 2 = avg of section 1-fall and 4-spring together
+		double avg_course_grade2 = ((enrollment.get(10).getGrade()) + (enrollment.get(11).getGrade())
+				+ (enrollment.get(12).getGrade())+ (enrollment.get(13).getGrade())
+				+ (enrollment.get(14).getGrade()) + (enrollment.get(15).getGrade()) + (enrollment.get(16).getGrade()) + (enrollment.get(17).getGrade())
+				+ (enrollment.get(18).getGrade())+ (enrollment.get(19).getGrade())
+				+ (enrollment.get(40).getGrade()) + (enrollment.get(41).getGrade()) + (enrollment.get(42).getGrade()) + (enrollment.get(43).getGrade())
+				+ (enrollment.get(44).getGrade())+ (enrollment.get(45).getGrade())
+				+ (enrollment.get(46).getGrade()) + (enrollment.get(47).getGrade()) +  (enrollment.get(48).getGrade()) + (enrollment.get(49).getGrade()))
+				/ ((double) 20);
+	
+		//Course 3 = avg of section 2-fall and 5-spring together
+		double avg_course_grade3 = ((enrollment.get(20).getGrade()) + (enrollment.get(21).getGrade())
+				+ (enrollment.get(22).getGrade())+ (enrollment.get(23).getGrade())
+				+ (enrollment.get(24).getGrade()) + (enrollment.get(25).getGrade()) + (enrollment.get(26).getGrade()) + (enrollment.get(27).getGrade())
+				+ (enrollment.get(28).getGrade())+ (enrollment.get(29).getGrade())
+				+ (enrollment.get(50).getGrade()) + (enrollment.get(51).getGrade()) + (enrollment.get(52).getGrade()) + (enrollment.get(53).getGrade())
+				+ (enrollment.get(54).getGrade())+ (enrollment.get(55).getGrade())
+				+ (enrollment.get(56).getGrade()) + (enrollment.get(57).getGrade()) +  (enrollment.get(58).getGrade()) + (enrollment.get(59).getGrade()))
+				/ ((double) 20);
 		
 		
+		//Student GPAs
+		assertEquals(gpa_student1,5.5, DELTA);
+		assertEquals(gpa_student2,5.75, DELTA);
+		assertEquals(gpa_student3,6.0, DELTA);
+		assertEquals(gpa_student4,6.25, DELTA);
+		assertEquals(gpa_student5,6.5, DELTA);
+		assertEquals(gpa_student6,6.75, DELTA);
+		assertEquals(gpa_student7,7.0, DELTA);
+		assertEquals(gpa_student8,7.25, DELTA);
+		assertEquals(gpa_student9,7.5, DELTA);
+		assertEquals(gpa_student10,7.75, DELTA);
+		
+		//Avg Grade Course1
+		assertEquals(avg_course_grade1, 102.5,DELTA);
+		//Avg Grade Course1
+		assertEquals(avg_course_grade2, 152.5,DELTA);
+		//Avg Grade Course1
+		assertEquals(avg_course_grade3, 202.5,DELTA);
+		
+		//ChangeMajor
 		student10.setMajor(eMajor.COMPSI);
+		assertTrue(student10.getMajor() == eMajor.COMPSI);
 
 	}
 }
