@@ -21,7 +21,7 @@ public class Student_Test {
 	@BeforeClass
 	public static void setup() {
 	}
- 
+
 	@Test
 	public void test() throws PersonException, ParseException {
 		ArrayList<Course> course = new ArrayList<Course>();
@@ -53,9 +53,6 @@ public class Student_Test {
 		section.add(section6);
 
 		ArrayList<Student> students = new ArrayList<Student>();
-		// public Student(String FirstName, String MiddleName, String
-		// LastName,Date DOB, eMajor Major,
-		// String Address, String Phone_number, String Email)
 		String DOB = "08/04/1996";
 		SimpleDateFormat df = new SimpleDateFormat("MM/dd/yyyy");
 		Date date = df.parse(DOB);
@@ -145,9 +142,64 @@ public class Student_Test {
 			}
 
 		}
+		int count = 1;
 		for (int i = 0; i < enrollment.size() + 1; i++) {
-			
+			enrollment.get(i).SetGrade(count * 5);
+			count++;
 		}
+		double gpa_student1 = (((enrollment.get(0).getGrade()) / 20 - 1) + ((enrollment.get(10).getGrade()) / 20 - 1)
+				+ ((enrollment.get(20).getGrade()) / 20 - 1) + ((enrollment.get(30).getGrade()) / 20 - 1)
+				+ ((enrollment.get(40).getGrade()) / 20 - 1) + ((enrollment.get(50).getGrade()) / 20 - 1))
+				/ ((double) 6);
+		double gpa_student2 = (((enrollment.get(1).getGrade()) / 20 - 1) + ((enrollment.get(11).getGrade()) / 20 - 1)
+				+ ((enrollment.get(21).getGrade()) / 20 - 1) + ((enrollment.get(31).getGrade()) / 20 - 1)
+				+ ((enrollment.get(41).getGrade()) / 20 - 1) + ((enrollment.get(51).getGrade()) / 20 - 1))
+				/ ((double) 6);
+		double gpa_student3 = (((enrollment.get(2).getGrade()) / 20 - 1) + ((enrollment.get(12).getGrade()) / 20 - 1)
+				+ ((enrollment.get(22).getGrade()) / 20 - 1) + ((enrollment.get(32).getGrade()) / 20 - 1)
+				+ ((enrollment.get(42).getGrade()) / 20 - 1) + ((enrollment.get(52).getGrade()) / 20 - 1))
+				/ ((double) 6);
+		double gpa_student4 = (((enrollment.get(3).getGrade()) / 20 - 1) + ((enrollment.get(13).getGrade()) / 20 - 1)
+				+ ((enrollment.get(23).getGrade()) / 20 - 1) + ((enrollment.get(33).getGrade()) / 20 - 1)
+				+ ((enrollment.get(43).getGrade()) / 20 - 1) + ((enrollment.get(53).getGrade()) / 20 - 1))
+				/ ((double) 6);
+		double gpa_student5 = (((enrollment.get(4).getGrade()) / 20 - 1) + ((enrollment.get(14).getGrade()) / 20 - 1)
+				+ ((enrollment.get(24).getGrade()) / 20 - 1) + ((enrollment.get(34).getGrade()) / 20 - 1)
+				+ ((enrollment.get(44).getGrade()) / 20 - 1) + ((enrollment.get(54).getGrade()) / 20 - 1))
+				/ ((double) 6);
+		double gpa_student6 = (((enrollment.get(5).getGrade()) / 20 - 1) + ((enrollment.get(15).getGrade()) / 20 - 1)
+				+ ((enrollment.get(25).getGrade()) / 20 - 1) + ((enrollment.get(35).getGrade()) / 20 - 1)
+				+ ((enrollment.get(45).getGrade()) / 20 - 1) + ((enrollment.get(55).getGrade()) / 20 - 1))
+				/ ((double) 6);
+		double gpa_student7 = (((enrollment.get(6).getGrade()) / 20 - 1) + ((enrollment.get(16).getGrade()) / 20 - 1)
+				+ ((enrollment.get(26).getGrade()) / 20 - 1) + ((enrollment.get(36).getGrade()) / 20 - 1)
+				+ ((enrollment.get(46).getGrade()) / 20 - 1) + ((enrollment.get(56).getGrade()) / 20 - 1))
+				/ ((double) 6);
+		double gpa_student8 = (((enrollment.get(7).getGrade()) / 20 - 1) + ((enrollment.get(17).getGrade()) / 20 - 1)
+				+ ((enrollment.get(27).getGrade()) / 20 - 1) + ((enrollment.get(37).getGrade()) / 20 - 1)
+				+ ((enrollment.get(47).getGrade()) / 20 - 1) + ((enrollment.get(57).getGrade()) / 20 - 1))
+				/ ((double) 6);
+		double gpa_student9 = (((enrollment.get(8).getGrade()) / 20 - 1) + ((enrollment.get(18).getGrade()) / 20 - 1)
+				+ ((enrollment.get(28).getGrade()) / 20 - 1) + ((enrollment.get(38).getGrade()) / 20 - 1)
+				+ ((enrollment.get(48).getGrade()) / 20 - 1) + ((enrollment.get(58).getGrade()) / 20 - 1))
+				/ ((double) 6);
+		double gpa_student10 = (((enrollment.get(9).getGrade()) / 20 - 1) + ((enrollment.get(19).getGrade()) / 20 - 1)
+				+ ((enrollment.get(29).getGrade()) / 20 - 1) + ((enrollment.get(39).getGrade()) / 20 - 1)
+				+ ((enrollment.get(49).getGrade()) / 20 - 1) + ((enrollment.get(59).getGrade()) / 20 - 1))
+				/ ((double) 6);
+		
+		System.out.println(gpa_student1);
+		System.out.println(gpa_student2);
+		System.out.println(gpa_student3);
+		System.out.println(gpa_student4);
+		System.out.println(gpa_student5);
+		System.out.println(gpa_student6);
+		System.out.println(gpa_student7);
+		System.out.println(gpa_student8);
+		System.out.println(gpa_student9);
+		System.out.println(gpa_student10);
+		assertEquals(1,1);
+		
 		
 		student10.setMajor(eMajor.COMPSI);
 

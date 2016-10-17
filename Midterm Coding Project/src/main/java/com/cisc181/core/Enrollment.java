@@ -14,6 +14,8 @@ public class Enrollment {
 		this.EnrollmentID = UUID.randomUUID();
 	}
 	
+	
+	
 	public void SetGrade(double Grade){ 
 		this.Grade = Grade;
 	} 
@@ -39,6 +41,10 @@ public class Enrollment {
 	
 	public void setEnrollmentID(UUID enrollmentID ){
 		EnrollmentID = enrollmentID;
+	}
+	public double getGrade() {
+		// TODO Auto-generated method stub
+		return Grade;
 	}
 
 
